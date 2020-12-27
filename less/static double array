@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+    int from = 10;
+    int to = 100;
+    const int size = 10;
+    int arr[size];
+    int double_arr[size][size];
+    int *ptr = double_arr[0];
+
+    srand(time(0));
+
+    printf("arr - %p\n", arr);
+    for (int i = 0; i < size; ++i)
+    {
+        arr[i] = rand() % (to - from) + from; 
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
+
+
+    printf("double_arr - %p\n", double_arr);
+    for (int i = 0; i < size; ++i)
+    {
+        // printf("%p\n", double_arr[i]);
+        for (int j = 0; j < size; ++j)
+        {
+            double_arr[i][j] = rand() % (to - from) + from; 
+            printf("%d ", double_arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+
+
+    printf("%p\n", ptr);
+    for (int i = 0; i < size * size; ++i)
+    {
+        printf("%d ", ptr[i]);
+    }
+
+    printf("\n\n%p\n", double_arr);
+
+    return 0;
+}
